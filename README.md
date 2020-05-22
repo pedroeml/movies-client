@@ -1,27 +1,68 @@
+![Node.js CI](https://github.com/pedroeml/movies-client/workflows/Node.js%20CI/badge.svg)
+![GitHub Pages CI](https://github.com/pedroeml/movies-client/workflows/GitHub%20Pages%20CI/badge.svg)
+
 # Movies client
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.7.
 
-## Development server
+## Installation
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+```bash
+$ npm install
+```
 
-## Code scaffolding
+## Running the app
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+```bash
+# development
+$ npm run start
+```
+
+Navigate to [`http://localhost:4200/`](http://localhost:4200/) or [`http://127.0.0.1:4200/`](http://127.0.0.1:4200/). The app will automatically reload if you change any of the source files.
 
 ## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+```bash
+# development
+$ npm run build
 
-## Running unit tests
+# production
+$ npm run build --prod
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+# production (GitHub Pages via docs folder)
+$ npm run build --prod --output-path docs --base-href /dragons-crud/
+```
 
-## Running end-to-end tests
+## Deploy
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+Deploy on GitHub Pages via angular-cli-ghpages
 
-## Further help
+```bash
+# production
+$ ng deploy --base-href=/dragons-crud/ --repo=https://github.com/<username>/<repositoryname>.git --name="Your Git Username" --email=your.mail@example.org
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+# or using deploy information stored in angular.json
+$ npm run deploy
+```
+
+## Test
+
+```bash
+# unit tests
+$ npm run test
+
+# end-to-end
+$ npm run e2e
+```
+
+## Serve on a Docker container with NGINX
+
+```bash
+# starting up
+$ docker-compose up
+
+# shutting down
+$ docker-compose down
+```
+
+Open your browser on [`http://localhost/`](http://localhost/) or [`http://127.0.0.1/`](http://127.0.0.1/).
