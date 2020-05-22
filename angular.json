@@ -117,8 +117,18 @@
               "devServerTarget": "movies-client:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy",
+          "options": {
+            "baseHref": "/movies-client/",
+            "repo": "https://github.com/pedroeml/movies-client.git",
+            "name": "Pedro Lemos",
+            "email": "pedroemlemos@gmail.com"
+          }
         }
       }
-    }},
+    }
+  },
   "defaultProject": "movies-client"
 }
