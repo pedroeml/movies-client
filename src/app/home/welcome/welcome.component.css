@@ -1,0 +1,9 @@
+:host {
+  display: flex;
+  flex-flow: column;
+  justify-content: space-around;
+}
+
+h1, h2, h3 {
+  align-self: center;
+}
