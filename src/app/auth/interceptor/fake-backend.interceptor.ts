@@ -53,6 +53,7 @@ export class FakeBackendInterceptor implements HttpInterceptor {
   private composeUserResponse(user: UserModel): UserResponse {
     const response: UserResponse = this.mapper.mapToResponse(user);
     response.token = this.token;
+    response.password = undefined;
 
     return response;
   }
