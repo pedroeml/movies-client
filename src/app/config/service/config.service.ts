@@ -13,6 +13,10 @@ export class ConfigService {
     return environment.usersApi;
   }
 
+  public getMoviesApiUrl(): string {
+    return environment.moviesApi;
+  }
+
   // TODO: delete it
   public getDragonsApiUrl(): string {
     return environment.dragonsApiEndPoint;
