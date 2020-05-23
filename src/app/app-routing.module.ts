@@ -11,10 +11,6 @@ const routes: Routes = [{
   canActivate: [AuthGuard],
   loadChildren: () => import('./home/home.module').then(m => m.HomeModule),
 }, {
-  path: 'dragons',
-  canActivate: [AuthGuard],
-  loadChildren: () => import('./dragons/dragons.module').then(m => m.DragonsModule),
-}, {
   path: '',
   redirectTo: '/login',
   pathMatch: 'full',

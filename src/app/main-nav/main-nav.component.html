@@ -19,11 +19,11 @@
 
       <a mat-list-item
         [ngClass]="{ disabled: !isLoggedIn }"
-        [routerLink]="['/dragons']"
+        [routerLink]="['/metrics']"
         routerLinkActive="router-link-active"
         (click)="drawer.close()">
         <mat-icon inline=true>fireplace</mat-icon>
-        Dragons
+        Metrics
       </a>
     </mat-nav-list>
   </mat-sidenav>
@@ -50,9 +50,9 @@
 
       <button mat-icon-button *ngIf="!(isHandset$ | async)"
         [ngClass]="{ disabled: !isLoggedIn }"
-        [routerLink]="['/dragons']"
+        [routerLink]="['/metrics']"
         routerLinkActive="router-link-active">
-        Dragons
+        Metrics
       </button>
 
       <button mat-icon-button

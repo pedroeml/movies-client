@@ -20,7 +20,7 @@ export class UserService {
 
   public getUser(id: string): Observable<UserModel> {
     return this.restService.getUser(id).pipe(
-      map(dragon => new UserModel(dragon)),
+      map(user => new UserModel(user)),
       catchError(() => of(undefined)),
     );
   }

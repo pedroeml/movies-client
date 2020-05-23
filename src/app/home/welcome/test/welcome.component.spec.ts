@@ -2,12 +2,10 @@ import { CommonModule } from '@angular/common';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 
-import { Observable, of } from 'rxjs';
-
-import { AuthModule } from '../../auth/auth.module';
-import { AuthService } from '../../auth/service/auth.service';
-import { UserModel } from '../../user/model/user.model';
-import { WelcomeComponent } from './welcome.component';
+import { AuthModule } from '../../../auth/auth.module';
+import { AuthService } from '../../../auth/service/auth.service';
+import { UserModel } from '../../../user/model/user.model';
+import { WelcomeComponent } from '../welcome.component';
 
 describe('WelcomeComponent', () => {
   let fixture: ComponentFixture<WelcomeComponent>;
@@ -37,7 +35,7 @@ describe('WelcomeComponent', () => {
         WelcomeComponent,
       ],
       providers: [
-        { provide: AuthService, useClass: class { user: Observable<UserModel> = of(user); } },
+        { provide: AuthService, useClass: class { storedUser: UserModel = user; } },
       ],
     }).compileComponents().then(() => {
       service = TestBed.get(AuthService);

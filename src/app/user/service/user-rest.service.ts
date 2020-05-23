@@ -23,6 +23,6 @@ export class UserRestService {
   }
 
   public putUser(id: string, user: UserRequest): Observable<UserResponse> {
-    return this.http.put<UserResponse>(`${this.config.getDragonsApiUrl()}/${id}`, user);
+    return this.http.put<UserResponse>(`${this.config.getUsersApiUrl()}/${id}`, user);
   }
 }

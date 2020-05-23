@@ -30,7 +30,7 @@ $ npm run build
 $ npm run build --prod
 
 # production (GitHub Pages via docs folder)
-$ npm run build --prod --output-path docs --base-href /dragons-crud/
+$ npm run build --prod --output-path docs --base-href /movies-client/
 ```
 
 ## Deploy
@@ -39,7 +39,7 @@ Deploy on GitHub Pages via angular-cli-ghpages
 
 ```bash
 # production
-$ ng deploy --base-href=/dragons-crud/ --repo=https://github.com/<username>/<repositoryname>.git --name="Your Git Username" --email=your.mail@example.org
+$ ng deploy --base-href=/movies-client/ --repo=https://github.com/<username>/<repositoryname>.git --name="Your Git Username" --email=your.mail@example.org
 
 # or using deploy information stored in angular.json
 $ npm run deploy
