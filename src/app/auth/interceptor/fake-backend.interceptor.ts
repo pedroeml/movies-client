@@ -5,6 +5,7 @@ import { Observable, of, throwError } from 'rxjs';
 import { delay, dematerialize, map, materialize, mergeMap, switchMap, tap } from 'rxjs/operators';
 
 import { UserResponse } from '../../user/integration/user.response';
+import { UserMapper } from '../../user/mapper/user.mapper';
 import { UserModel } from '../../user/model/user.model';
 import { UserService } from '../../user/service/user.service';
 
@@ -13,7 +14,9 @@ export class FakeBackendInterceptor implements HttpInterceptor {
   private readonly token: string;
   private readonly users: UserModel[];
 
-  constructor(private readonly service: UserService) {
+  constructor(
+    private readonly mapper: UserMapper,
+    private readonly service: UserService) {
     this.users = [];
     this.token = 'fake-token';
   }
@@ -48,15 +51,10 @@ export class FakeBackendInterceptor implements HttpInterceptor {
   }
 
   private composeUserResponse(user: UserModel): UserResponse {
-    return {
-      id: user.id,
-      username: user.username,
-      firstName: user.firstName,
-      lastName: user.lastName,
-      picture: user.picture,
-      watchedMovies: user.watchedMovies,
-      token: this.token,
-    };
+    const response: UserResponse = this.mapper.mapToResponse(user);
+    response.token = this.token;
+
+    return response;
   }
 
   private handleAuthRequest(request: HttpRequest<any>): Observable<HttpResponse<UserResponse>> {
@@ -64,7 +62,7 @@ export class FakeBackendInterceptor implements HttpInterceptor {
 
     if (!user) {
       const errorResponse: HttpErrorResponse = new HttpErrorResponse({
-        status: 400,
+        status: 401,
         error: {
           message: 'Username or password is wrong',
         },

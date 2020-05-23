@@ -4,6 +4,7 @@ export interface UserResponse {
   password?: string;
   firstName: string;
   lastName: string;
+  country: string;
   picture: string;
   watchedMovies: any[];   // TODO: type it
   token?: string;

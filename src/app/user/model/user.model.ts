@@ -6,6 +6,7 @@ export class UserModel {
   public readonly password: string;
   public readonly firstName: string;
   public readonly lastName: string;
+  public readonly country: string;
   public readonly picture: string;
   public readonly watchedMovies: any[];   // TODO: type it
   public readonly token?: string;
@@ -16,6 +17,7 @@ export class UserModel {
     this.password = user.password;
     this.firstName = user.firstName;
     this.lastName = user.lastName;
+    this.country = user.country;
     this.picture = user.picture;
     this.watchedMovies = user.watchedMovies;
     this.token = user.token;
