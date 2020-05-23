@@ -1,0 +1,15 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title *ngIf="!isLoading">Profile Details (ID: {{ user.id }})</mat-card-title>
+    <img *ngIf="!isLoading"
+      class="picture"
+      [src]="pictureBase64"/>
+  </mat-card-header>
+  <mat-card-content>
+    <mat-spinner matSuffix matTooltip="Loading..." [diameter]="100" *ngIf="isLoading"></mat-spinner>
+    <app-user-form *ngIf="!isLoading"
+      [user]="user"
+      (editedUser)="updateUser($event)">
+    </app-user-form>
+  </mat-card-content>
+</mat-card>

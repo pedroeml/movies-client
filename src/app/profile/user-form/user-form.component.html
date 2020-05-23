@@ -1,0 +1,58 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div class="row">
+    <mat-form-field class="name">
+      <input matInput readonly
+        type="text"
+        placeholder="User name"
+        formControlName="usernameCtrl">
+    </mat-form-field>
+
+    <mat-form-field class="country">
+      <input matInput readonly
+        type="text"
+        placeholder="Country"
+        formControlName="countryCtrl">
+    </mat-form-field>
+  </div>
+
+  <div class="row">
+    <mat-form-field class="full-width">
+      <input matInput email
+        type="email"
+        placeholder="user@domain.com"
+        formControlName="emailCtrl">
+    </mat-form-field>
+  </div>
+
+  <div class="row">
+    <mat-form-field class="name">
+      <input matInput
+        type="text"
+        placeholder="First Name"
+        formControlName="firstnameCtrl">
+    </mat-form-field>
+
+    <mat-form-field class="name">
+      <input matInput
+        type="text"
+        placeholder="Last Name"
+        formControlName="lastnameCtrl">
+    </mat-form-field>
+  </div>
+
+  <div class="row">
+    <mat-form-field class="full-width">
+      <input matInput
+        type="password"
+        placeholder="Password"
+        formControlName="passwordCtrl">
+    </mat-form-field>
+  </div>
+
+  <div class="footer">
+    <span class="fill-remaining-space"></span>
+    <mat-spinner matSuffix matTooltip="Loading..." [diameter]="20" *ngIf="isLoading"></mat-spinner>
+    <span class="fill-remaining-space"></span>    
+    <button type="submit" [ngClass]="{ disabled: !form.valid || isLoading }" mat-button>Save</button>
+  </div>
+</form>
