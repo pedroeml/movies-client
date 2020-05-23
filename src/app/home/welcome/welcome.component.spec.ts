@@ -20,6 +20,7 @@ describe('WelcomeComponent', () => {
     password: '123',
     firstName: 'User',
     lastName: 'Test',
+    country: '',
     picture: '',
     watchedMovies: [],
     token: 'fake-jwt-token',

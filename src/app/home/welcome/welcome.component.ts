@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
 
-import { first } from 'rxjs/operators';
-
 import { AuthService } from '../../auth/service/auth.service';
 import { UserModel } from '../../user/model/user.model';
 
@@ -14,11 +12,7 @@ export class WelcomeComponent {
   public user: UserModel;
 
   constructor(private readonly authService: AuthService) {
-    this.authService.user.pipe(
-      first(),
-    ).subscribe(
-      user => { this.user = user; }
-    );
+    this.user = this.authService.storedUser;
   }
 
   get userName(): string {

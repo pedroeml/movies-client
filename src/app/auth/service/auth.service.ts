@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-import { BehaviorSubject, Observable } from 'rxjs';
+import { Observable } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
 
 import { UserModel } from '../../user/model/user.model';
@@ -8,20 +8,15 @@ import { AuthRestService } from './auth-rest.service';
 
 @Injectable()
 export class AuthService {
-  private readonly user$: BehaviorSubject<UserModel>;
-  public readonly user: Observable<UserModel>;
 
-  constructor(private readonly restService: AuthRestService) {
-    this.user$ = new BehaviorSubject<UserModel>(this.getStoredUser());
-    this.user = this.user$.asObservable();
-  }
+  constructor(private readonly restService: AuthRestService) { }
 
-  get userValue(): UserModel {
-    return this.user$.getValue() || this.getStoredUser();
+  get storedUser(): UserModel {
+    return JSON.parse(localStorage.getItem('user'));
   }
 
   public isLoggedIn(): boolean {
-    const user: UserModel = this.userValue;
+    const user: UserModel = this.storedUser;
     return user && !!user.token;
   }
 
@@ -37,20 +32,10 @@ export class AuthService {
   }
 
   public logout(): void {
-    this.deleteStoredUser();
+    localStorage.removeItem('user');
   }
 
   private storeUser(user: UserModel): void {
     localStorage.setItem('user', JSON.stringify(user));
-    this.user$.next(user);
-  }
-
-  private getStoredUser(): UserModel {
-    return JSON.parse(localStorage.getItem('user'));
-  }
-
-  private deleteStoredUser(): void {
-    localStorage.removeItem('user');
-    this.user$.next(undefined);
   }
 }
