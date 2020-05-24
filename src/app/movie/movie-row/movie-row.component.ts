@@ -13,10 +13,13 @@ export class MovieRowComponent {
   @Input()
   public movies: MovieModel[];
 
+  @Input()
+  public title: string;
+
   constructor(private readonly sanitizer: DomSanitizer) { }
 
   get movieGenre(): string {
-    return this.movies.find(movie => !!movie.genre).genre;
+    return this.title || this.movies.find(movie => !!movie.genre).genre;
   }
 
   public getMovieImageUrl(movie: MovieModel): SafeResourceUrl {

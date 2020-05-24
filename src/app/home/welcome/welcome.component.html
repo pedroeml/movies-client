@@ -1,3 +1,15 @@
-<h1 *ngIf="!!user">Hello {{ userName }}! :D</h1>
-<h2>Check out our movies list!</h2>
-<h3>Feel free to add, update or delete any movie! :)</h3>
+<h1 *ngIf="!!user">Welcome back, {{ userName }}!</h1>
+
+<mat-spinner matSuffix matTooltip="Loading..." [diameter]="100" *ngIf="isLoading"></mat-spinner>
+
+<app-movie-row *ngIf="watchedMovies"
+  class="min-padding"
+  [title]="'Continue watching'"
+  [movies]="watchedMovies">
+</app-movie-row>
+
+<ul class="min-padding">
+  <li *ngFor="let movies of moviesByGenre">
+    <app-movie-row [movies]="movies"></app-movie-row>
+  </li>
+</ul>
