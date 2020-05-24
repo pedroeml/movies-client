@@ -5,10 +5,11 @@
       class="picture"
       [src]="pictureBase64"/>
   </mat-card-header>
+  <mat-spinner matSuffix matTooltip="Loading..." [diameter]="100" *ngIf="isLoading"></mat-spinner>
   <mat-card-content>
-    <mat-spinner matSuffix matTooltip="Loading..." [diameter]="100" *ngIf="isLoading"></mat-spinner>
     <app-user-form *ngIf="!isLoading"
       [user]="user"
+      [isUpdating]="isUpdating"
       (editedUser)="updateUser($event)">
     </app-user-form>
   </mat-card-content>

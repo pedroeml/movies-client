@@ -15,11 +15,15 @@ export class UserFormComponent implements OnInit {
   @Input()
   public user: UserModel;
 
+  @Input()
+  public isUpdating: boolean;
+
   @Output()
   public readonly editedUser: EventEmitter<UserRequest>;
 
   constructor(private readonly formBuilder: FormBuilder) {
     this.editedUser = new EventEmitter<UserRequest>();
+    this.isUpdating = false;
   }
 
   ngOnInit() {
@@ -34,7 +38,7 @@ export class UserFormComponent implements OnInit {
   }
 
   get isLoading(): boolean {
-    return !this.user;
+    return !this.user || this.isUpdating;
   }
 
   get username(): string {

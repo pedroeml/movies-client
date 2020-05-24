@@ -1,5 +1,5 @@
 mat-card {
-  height: auto;
+  height: max-content;
   max-height: 100%;
   max-width: 500px;
   margin: auto;
@@ -15,7 +15,10 @@ mat-card-header {
 }
 
 mat-spinner {
-  margin: auto;
+  margin-top: 30%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 70%;
 }
 
 mat-card-title {

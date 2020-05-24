@@ -15,12 +15,14 @@ import { ProfileService } from '../service/profile.service';
 })
 export class UserDetailsComponent {
   public user: UserModel;
+  public isUpdating: boolean;
   public readonly pictureBase64: SafeResourceUrl;
 
   constructor(
     private readonly sanitizer: DomSanitizer,
     private readonly snackBar: MatSnackBar,
     private readonly service: ProfileService) {
+    this.isUpdating = false;
     this.pictureBase64 = this.sanitizer.bypassSecurityTrustResourceUrl(this.service.user.picture);
     this.loadUser();
   }
@@ -39,18 +41,20 @@ export class UserDetailsComponent {
 
   public updateUser(request: UserRequest): void {
     let message = '';
+    this.isUpdating = true;
 
     this.service.update(`${this.user.id}`, request).subscribe(
       user => {
-        if (!user) {
-          message = 'An error occured while saving.';
-        } else {
-          this.user = user;
-          message = 'Saved successfully!';
-        }
+        this.user = user;
+        message = 'Saved successfully!';
       },
-      err => { },
-      () => { this.openSackBar(message, 'OK'); }
+      err => {
+        message = 'An error occured while saving.';
+      },
+      () => {
+        this.openSackBar(message, 'OK');
+        this.isUpdating = false;
+      }
     );
   }
 

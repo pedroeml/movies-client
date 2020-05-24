@@ -28,7 +28,6 @@ export class UserService {
   public updateUser(id: string, request: UserRequest): Observable<UserModel> {
     return this.restService.putUser(id, request).pipe(
       map(user => new UserModel(user)),
-      catchError(() => of(undefined)),
     );
   }
 }

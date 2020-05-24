@@ -37,9 +37,7 @@ export class ProfileService {
 
     return this.userService.updateUser(id, request).pipe(
       tap(user => {
-        if (user) {
-          this.authService.storeUser(new UserModel({...user, ...{ token }}));
-        }
+        this.authService.storeUser(new UserModel({...user, ...{ token }}));
       }),
     );
   }
