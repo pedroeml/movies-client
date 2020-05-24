@@ -25,12 +25,12 @@
 }
 
 mat-nav-list a.router-link-active {
-  color: blue;
+  color: #3f51b5;
   font-weight: bold;
 }
 
 mat-nav-list a.router-link-active mat-icon {
-  color: blue;
+  color: #3f51b5;
 }
 
 mat-toolbar button.router-link-active {
