@@ -1,0 +1,28 @@
+h2 {
+  text-transform: uppercase;
+  margin-top: 2%;
+  margin-bottom: 1%;
+}
+
+img {
+  width: 180px;
+  height: auto;
+}
+
+ul {
+  width: auto;
+  display: flex;
+  flex-flow: row;
+  overflow: auto;
+  white-space: nowrap;
+  list-style: none;
+  padding-left: 0px;
+}
+
+ul li {
+  width: 180px;
+  height: fit-content;
+  margin-right: 10px;
+  white-space: normal;
+  display: inline-block;
+}

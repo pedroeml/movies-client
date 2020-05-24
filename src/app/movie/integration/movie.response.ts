@@ -1,5 +1,5 @@
 export interface MovieResponse {
-  id: number;
+  id: string;
   name: string;
   genre: string;
   release: string;

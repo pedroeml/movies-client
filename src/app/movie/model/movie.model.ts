@@ -1,7 +1,7 @@
 import { MovieResponse } from '../integration/movie.response';
 
 export class MovieModel {
-  public readonly id: number;
+  public readonly id: string;
   public readonly name: string;
   public readonly genre: string;
   public readonly release: string;

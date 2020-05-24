@@ -43,7 +43,7 @@ export class UserDetailsComponent {
     let message = '';
     this.isUpdating = true;
 
-    this.service.update(`${this.user.id}`, request).subscribe(
+    this.service.update(this.user.id, request).subscribe(
       user => {
         this.user = user;
         message = 'Saved successfully!';
