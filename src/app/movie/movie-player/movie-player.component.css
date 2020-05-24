@@ -1,0 +1,27 @@
+:host {
+  max-width: 100%;
+  display: flex;
+  overflow: auto;
+  flex-flow: column;
+}
+
+mat-spinner {
+  margin-top: 30%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 70%;
+}
+
+div.video-container {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0px;
+}
+
+div.video-container iframe {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+}

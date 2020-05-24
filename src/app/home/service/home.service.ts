@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
-import { forkJoin, Observable, of } from 'rxjs';
-import { first, map, mergeMap } from 'rxjs/operators';
+import { Observable } from 'rxjs';
+import { first, map } from 'rxjs/operators';
 
 import { MovieModel } from '../../movie/model/movie.model';
 import { MovieService } from '../../movie/service/movie.service';
@@ -28,15 +28,6 @@ export class HomeService {
   }
 
   public loadWatchedMovies(user: UserModel, length?: number): Observable<MovieModel[]> {
-    const moviesIds: string[] = user.watchedMovies.map(watchedMovie => watchedMovie.id);
-
-    if (length && length > 0) {
-      moviesIds.length = length;
-    }
-
-    return of(moviesIds).pipe(
-      map(ids => ids.map(id => this.movieService.getMovie(id))),
-      mergeMap(observables => forkJoin(observables)),
-    );
+    return this.movieService.loadWatchedMovies(user, length);
   }
 }

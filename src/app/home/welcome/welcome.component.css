@@ -1,5 +1,6 @@
 :host {
   display: flex;
+  overflow: auto;
   flex-flow: column;
   justify-content: space-around;
 }
@@ -18,8 +19,4 @@ mat-spinner {
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 70%;
-}
-
-.min-padding {
-  padding-left: 1%;
 }
