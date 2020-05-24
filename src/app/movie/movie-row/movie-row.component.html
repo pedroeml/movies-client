@@ -1,6 +1,8 @@
 <h2>{{ movieGenre }}</h2>
 <ul>
-  <li *ngFor="let movie of movies">
+  <li *ngFor="let movie of movies"
+    [routerLink]="['/player', movie.id]"
+    routerLinkActive="router-link-active">
     <img [src]="getMovieImageUrl(movie)"/>
     <h4>{{ movie.name }}</h4>
   </li>

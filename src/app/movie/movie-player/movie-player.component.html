@@ -1,0 +1,16 @@
+<mat-spinner matSuffix matTooltip="Loading..." [diameter]="100" *ngIf="isLoading"></mat-spinner>
+
+<div *ngIf="!isLoading">
+  <div class="video-container">
+    <iframe 
+      type="text/html"
+      [src]="movieUrl"
+      frameborder="0"
+      allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+      allowfullscreen>
+    </iframe>
+  </div>
+  
+  <h2 class="min-padding">{{ movie.name }}</h2>
+  <h4 class="min-padding">{{ movie.release }} - {{ movie.genre }}</h4>
+</div>
