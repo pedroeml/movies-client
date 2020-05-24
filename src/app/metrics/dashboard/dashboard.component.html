@@ -1,0 +1,27 @@
+
+<div *ngIf="!isLoading">
+  <ul>
+    <li *ngFor="let user of topUsers">
+      {{ user.totalViews }} - {{ user.firstName }} {{ user.lastName }}
+    </li>
+  </ul>
+
+  <form>
+    <mat-form-field>
+      <mat-label>Country</mat-label>
+      <mat-select [(value)]="selectedCountry">
+        <mat-option *ngFor="let country of countries" [value]="country">
+          {{ country }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </form>
+
+  {{ selectedCountry }}
+
+  <ul>
+    <li *ngFor="let movie of topMovies">
+      {{ totalViewsByCountry(movie) }} - {{ movie.movie.name }}
+    </li>
+  </ul>
+</div>
