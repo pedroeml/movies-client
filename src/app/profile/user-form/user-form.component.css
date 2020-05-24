@@ -1,0 +1,47 @@
+form {
+  font-size: 1.1em;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+}
+
+div.row {
+  display: flex;
+  flex-flow: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+mat-form-field.name {
+  width: 40%;
+  min-width: 15em;
+}
+
+mat-form-field.country {
+  width: 3em;
+}
+
+mat-form-field.full-width {
+  width: 100%;
+}
+
+.fill-remaining-space {
+  flex: 1 1 auto;
+}
+
+.footer {
+  display: flex;
+  align-content: center;
+  justify-content: space-between;
+}
+
+.footer > button {
+  background-color: blue;
+  color: white;
+  margin: 0px 5px 0px 5px;
+}
+
+button.disabled {
+  background-color: darkgray!important;
+  pointer-events: none;
+}

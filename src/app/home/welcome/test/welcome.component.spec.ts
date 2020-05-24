@@ -18,6 +18,7 @@ describe('WelcomeComponent', () => {
     password: '123',
     firstName: 'User',
     lastName: 'Test',
+    email: '',
     country: '',
     picture: '',
     watchedMovies: [],

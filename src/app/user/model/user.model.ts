@@ -4,6 +4,7 @@ export class UserModel {
   public readonly id: number;
   public readonly username: string;
   public readonly password: string;
+  public readonly email: string;
   public readonly firstName: string;
   public readonly lastName: string;
   public readonly country: string;
@@ -15,6 +16,7 @@ export class UserModel {
     this.id = user.id;
     this.username = user.username;
     this.password = user.password;
+    this.email = user.email;
     this.firstName = user.firstName;
     this.lastName = user.lastName;
     this.country = user.country;

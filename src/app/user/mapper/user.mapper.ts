@@ -10,6 +10,8 @@ export class UserMapper {
     return {
       id: model.id,
       username: model.username,
+      password: model.password,
+      email: model.email,
       firstName: model.firstName,
       lastName: model.lastName,
       country: model.country,

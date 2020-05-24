@@ -35,7 +35,7 @@ export class AuthService {
     localStorage.removeItem('user');
   }
 
-  private storeUser(user: UserModel): void {
+  public storeUser(user: UserModel): void {
     localStorage.setItem('user', JSON.stringify(user));
   }
 }
