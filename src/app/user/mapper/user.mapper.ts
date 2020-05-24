@@ -16,7 +16,7 @@ export class UserMapper {
       lastName: model.lastName,
       country: model.country,
       picture: model.picture,
-      watchedMovies: model.watchedMovies,
+      watchedMovies: model.watchedMovies.map(watchedMovie => ({ ...watchedMovie })),
       token: model.token,
     };
   }

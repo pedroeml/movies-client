@@ -13,7 +13,7 @@ describe('WelcomeComponent', () => {
   let service: AuthService;
 
   const user: UserModel = new UserModel({
-    id: 0,
+    id: '0',
     username: 'user',
     password: '123',
     firstName: 'User',

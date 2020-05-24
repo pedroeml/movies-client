@@ -1,7 +1,8 @@
 import { UserResponse } from '../integration/user.response';
+import { WatchedMovieModel } from './watched-movie.model';
 
 export class UserModel {
-  public readonly id: number;
+  public readonly id: string;
   public readonly username: string;
   public readonly password: string;
   public readonly email: string;
@@ -9,7 +10,7 @@ export class UserModel {
   public readonly lastName: string;
   public readonly country: string;
   public readonly picture: string;
-  public readonly watchedMovies: any[];   // TODO: type it
+  public readonly watchedMovies: WatchedMovieModel[];
   public readonly token?: string;
 
   constructor(user: UserResponse) {
@@ -21,7 +22,7 @@ export class UserModel {
     this.lastName = user.lastName;
     this.country = user.country;
     this.picture = user.picture;
-    this.watchedMovies = user.watchedMovies;
+    this.watchedMovies = user.watchedMovies.map(watchedMovie => new WatchedMovieModel(watchedMovie));
     this.token = user.token;
   }
 }

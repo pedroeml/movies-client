@@ -20,7 +20,7 @@ export class ProfileService {
   }
 
   public load(): Observable<UserModel> {
-    return this.userService.getUser(`${this.user.id}`).pipe(
+    return this.userService.getUser(this.user.id).pipe(
       map(u => {
         if (!u) {
           throw new Error(`Failed to fetch User ID ${this.user.id}`);

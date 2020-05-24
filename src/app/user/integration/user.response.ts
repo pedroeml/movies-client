@@ -1,5 +1,7 @@
+import { WatchedMovieResponse } from './watched-movie.response';
+
 export interface UserResponse {
-  id: number;
+  id: string;
   username: string;
   password?: string;
   email: string;
@@ -7,6 +9,6 @@ export interface UserResponse {
   lastName: string;
   country: string;
   picture: string;
-  watchedMovies: any[];   // TODO: type it
+  watchedMovies: WatchedMovieResponse[];
   token?: string;
 }
