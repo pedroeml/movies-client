@@ -1,5 +1,6 @@
 :host {
   display: flex;
+  overflow: auto;
   flex-flow: column;
   justify-content: space-around;
 }
