@@ -1,0 +1,25 @@
+ol {
+  display: flex;
+  flex-flow: column;
+  list-style: none;
+}
+
+ol li {
+  width: fit-content;
+  display: flex;
+  flex-flow: row;
+  margin-bottom: 10px;
+}
+
+div.details {
+  display: flex;
+  flex-flow: column;
+  justify-content: space-around;
+  margin-left: 5%;
+}
+
+img.picture {
+  width: 25%;
+  min-width: 100px;
+  height: 100%;
+}

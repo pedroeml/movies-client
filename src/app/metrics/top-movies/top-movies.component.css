@@ -1,0 +1,35 @@
+form {
+  margin-top: 2%;
+  text-align: center;
+}
+
+form mat-form-field {
+  width: 80%;
+}
+
+ol {
+  max-width: 95%;
+  max-height: 65%;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: auto;
+  white-space: nowrap;
+  display: flex;
+  flex-flow: column;
+  flex-wrap: wrap;
+  list-style: none;
+}
+
+ol li {
+  max-width: 45%;
+  display: flex;
+  flex-flow: column;
+  margin-bottom: 10px;
+  white-space: normal;
+  display: inline-block;
+}
+
+ol li div {
+  display: flex;
+  justify-content: space-around;
+}

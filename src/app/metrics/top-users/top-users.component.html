@@ -1,0 +1,12 @@
+<mat-spinner matSuffix *ngIf="!users" class="page-spinner" [diameter]="100"></mat-spinner>
+
+<ol class="min-padding">
+  <li *ngFor="let user of users">
+    <img class="picture" [src]="picture(user)"/>
+    <div class="details">
+      <h2>{{ user.firstName }} {{ user.lastName }}</h2>
+      <h3>{{ user.country }}</h3>
+      <h3>{{ user.totalViews }} views</h3>
+    </div>
+  </li>
+</ol>

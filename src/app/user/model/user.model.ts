@@ -25,4 +25,8 @@ export class UserModel {
     this.watchedMovies = user.watchedMovies.map(watchedMovie => new WatchedMovieModel(watchedMovie));
     this.token = user.token;
   }
+
+  get totalViews(): number {
+    return this.watchedMovies.reduce((acc, model) => acc += model.views, 0);
+  }
 }
