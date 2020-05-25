@@ -9,7 +9,7 @@ form mat-form-field {
 
 ol {
   max-width: 95%;
-  max-height: 70%;
+  max-height: 65%;
   margin-left: auto;
   margin-right: auto;
   overflow: auto;
@@ -27,4 +27,9 @@ ol li {
   margin-bottom: 10px;
   white-space: normal;
   display: inline-block;
+}
+
+ol li div {
+  display: flex;
+  justify-content: space-around;
 }

@@ -4,13 +4,13 @@
       <app-top-users></app-top-users>
     </mat-tab>
     <mat-tab label="Top Movies">
-      <mat-spinner matSuffix matTooltip="Loading..." [diameter]="100" *ngIf="!moviesByRegion"></mat-spinner>
+      <mat-spinner matSuffix *ngIf="!moviesByRegion" class="page-spinner" [diameter]="100"></mat-spinner>
       <app-top-movies *ngIf="moviesByRegion"
         [moviesByRegion]="moviesByRegion">
       </app-top-movies>
     </mat-tab>
     <mat-tab label="Top Genres">
-      <mat-spinner matSuffix matTooltip="Loading..." [diameter]="100" *ngIf="!moviesByRegion"></mat-spinner>
+      <mat-spinner matSuffix *ngIf="!moviesByRegion" class="page-spinner" [diameter]="100"></mat-spinner>
       <app-top-genres *ngIf="moviesByRegion"
         [moviesByRegion]="moviesByRegion">
       </app-top-genres>

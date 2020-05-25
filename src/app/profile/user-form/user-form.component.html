@@ -51,7 +51,7 @@
 
   <div class="footer">
     <span class="fill-remaining-space"></span>
-    <mat-spinner matSuffix matTooltip="Loading..." [diameter]="20" *ngIf="isLoading"></mat-spinner>
+    <mat-spinner matSuffix *ngIf="isLoading" [diameter]="25"></mat-spinner>
     <span class="fill-remaining-space"></span>    
     <button type="submit" [ngClass]="{ disabled: !form.valid || isLoading }" mat-button>Save</button>
   </div>

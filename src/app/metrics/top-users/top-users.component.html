@@ -1,4 +1,4 @@
-<mat-spinner matSuffix matTooltip="Loading..." [diameter]="100" *ngIf="!users"></mat-spinner>
+<mat-spinner matSuffix *ngIf="!users" class="page-spinner" [diameter]="100"></mat-spinner>
 
 <ol class="min-padding">
   <li *ngFor="let user of users">
