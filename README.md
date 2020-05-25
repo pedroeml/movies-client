@@ -66,3 +66,25 @@ $ docker-compose down
 ```
 
 Open your browser on [`http://localhost/`](http://localhost/) or [`http://127.0.0.1/`](http://127.0.0.1/).
+
+## Mocked User Credentials
+
+There are only four mocked users at the moment:
+
+```
+username: john
+password: 123
+
+username: mary
+password: 456
+
+username: jack
+password: 789
+
+username: marvin
+password: 012
+```
+
+## TODO:
+
+- Unit testing
