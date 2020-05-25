@@ -1,44 +1,19 @@
-
-<mat-tab-group>
-  <mat-tab label="Top Users">
-    <mat-spinner matSuffix matTooltip="Loading..." [diameter]="100" *ngIf="!topUsers"></mat-spinner>
-    <div *ngIf="topUsers">
-      <ol>
-        <li *ngFor="let user of topUsers">
-          {{ user.firstName }} {{ user.lastName }} - {{ user.totalViews }} views
-        </li>
-      </ol>
-    </div>
-  </mat-tab>
-  <mat-tab label="Top Movies">
-    <mat-spinner matSuffix matTooltip="Loading..." [diameter]="100" *ngIf="!topMovies"></mat-spinner>
-    <div *ngIf="topMovies">
-      <form>
-        <mat-form-field>
-          <mat-label>Country</mat-label>
-          <mat-select [(value)]="selectedCountry">
-            <mat-option *ngFor="let country of countries" [value]="country">
-              {{ country }}
-            </mat-option>
-          </mat-select>
-        </mat-form-field>
-      </form>
-    
-      <ol>
-        <li *ngFor="let movie of topMovies">
-          {{ movie.movie.name }} - {{ totalViewsByCountry(movie) }} views
-        </li>
-      </ol>
-    </div>
-  </mat-tab>
-  <mat-tab label="Top Genres">
-    <mat-spinner matSuffix matTooltip="Loading..." [diameter]="100" *ngIf="!topGenres"></mat-spinner>
-    <div *ngIf="topGenres">
-      <ol>
-        <li *ngFor="let genre of topGenres">
-          {{ genre.genre }} - {{ genre.views }} views
-        </li>
-      </ol>
-    </div>
-  </mat-tab>
-</mat-tab-group>
+<mat-card>
+  <mat-tab-group>
+    <mat-tab label="Top Users">
+      <app-top-users></app-top-users>
+    </mat-tab>
+    <mat-tab label="Top Movies">
+      <mat-spinner matSuffix matTooltip="Loading..." [diameter]="100" *ngIf="!moviesByRegion"></mat-spinner>
+      <app-top-movies *ngIf="moviesByRegion"
+        [moviesByRegion]="moviesByRegion">
+      </app-top-movies>
+    </mat-tab>
+    <mat-tab label="Top Genres">
+      <mat-spinner matSuffix matTooltip="Loading..." [diameter]="100" *ngIf="!moviesByRegion"></mat-spinner>
+      <app-top-genres *ngIf="moviesByRegion"
+        [moviesByRegion]="moviesByRegion">
+      </app-top-genres>
+    </mat-tab>
+  </mat-tab-group>
+</mat-card>
