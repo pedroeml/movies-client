@@ -1,0 +1,12 @@
+mat-tab {
+  overflow: auto;
+  display: flex;
+  flex-flow: column;
+}
+
+mat-spinner {
+  margin-top: 30%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 70%;
+}

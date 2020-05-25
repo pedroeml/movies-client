@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 
 import { UserModel } from '../../user/model/user.model';
+import { GenreViews } from '../model/genre-views.interface';
 import { RegionMovieCollection } from '../model/region-movie-collection.interface';
 import { RegionMovieModel } from '../model/region-movie.model';
 import { MetricsService } from '../service/metrics.service';
@@ -18,16 +19,13 @@ export class DashboardComponent {
   public moviesByRegion: RegionMovieCollection;
   public topUsers: UserModel[];
   public topMovies: RegionMovieModel[];
+  public topGenres: GenreViews[];
 
   constructor(private readonly service: MetricsService) {
     this.limit = 3;
     this.user = this.service.getLoggedUser();
     this.loadTopUsers();
     this.loadMoviesByRegion();
-  }
-
-  get isLoading(): boolean {
-    return !this.moviesByRegion || !this.topUsers;
   }
 
   get selectedCountry(): string {
@@ -42,7 +40,7 @@ export class DashboardComponent {
   }
 
   private updateTopMovies(): void {
-    this.topMovies = this.service.topMoviesByRegion(this.moviesByRegion, this.country, this.limit);
+    this.topMovies = this.service.topMoviesByRegion(this.moviesByRegion, this.country, this.limit + 2);
   }
 
   public totalViewsByCountry(movie: RegionMovieModel): number {
@@ -59,6 +57,7 @@ export class DashboardComponent {
     this.service.getMoviesByRegion().subscribe(
       collection => {
         this.countries = this.service.getAvailableRegions(collection);
+        this.topGenres = this.service.topGenres(collection);
         this.moviesByRegion = collection;
       },
       () => { },

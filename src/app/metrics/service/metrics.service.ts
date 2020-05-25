@@ -9,6 +9,8 @@ import { ProfileService } from '../../profile/service/profile.service';
 import { UserModel } from '../../user/model/user.model';
 import { WatchedMovieModel } from '../../user/model/watched-movie.model';
 import { UserService } from '../../user/service/user.service';
+import { GenreViewsCollection } from '../model/genre-views-collection.interface';
+import { GenreViews } from '../model/genre-views.interface';
 import { RegionMovieCollection } from '../model/region-movie-collection.interface';
 import { RegionMovieModel } from '../model/region-movie.model';
 
@@ -47,11 +49,26 @@ export class MetricsService {
     return watchedMovies;
   }
 
+  public topGenres(regionWatchedMovies: RegionMovieCollection): GenreViews[] {
+    const genreViews: GenreViewsCollection = {};
+
+    this.movieService.movieGenres.forEach(genre => {
+      genreViews[genre] = { genre, views: 0 };
+    });
+
+    Object.values(regionWatchedMovies).forEach(movie => {
+      genreViews[movie.movie.genre].views += movie.totalViews;
+    });
+
+    return Object.values(genreViews)
+      .sort((genreA, genreB) => genreA.views > genreB.views ? -1 : 1);
+  }
+
   public getAvailableRegions(regionWatchedMovies: RegionMovieCollection): string[] {
     const countries = {};
 
-    Object.values(regionWatchedMovies).forEach(region => {
-      Object.keys(region.regionViews).forEach(country => {
+    Object.values(regionWatchedMovies).forEach(movie => {
+      Object.keys(movie.regionViews).forEach(country => {
         countries[country] = undefined;
       });
     });

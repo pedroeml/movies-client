@@ -1,7 +1,9 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSelectModule } from '@angular/material/select';
+import { MatTabsModule } from '@angular/material/tabs';
 
 import { MovieModule } from '../movie/movie.module';
 import { ProfileModule } from '../profile/profile.module';
@@ -17,7 +19,9 @@ import { MetricsService } from './service/metrics.service';
   imports: [
     CommonModule,
     MatFormFieldModule,
+    MatProgressSpinnerModule,
     MatSelectModule,
+    MatTabsModule,
     MetricsRoutingModule,
     MovieModule,
     ProfileModule,
