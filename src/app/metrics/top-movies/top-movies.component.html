@@ -1,0 +1,18 @@
+<form>
+  <mat-form-field>
+    <mat-label>Country</mat-label>
+    <mat-select [(value)]="selectedCountry">
+      <mat-option *ngFor="let country of countries" [value]="country">
+        {{ country }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</form>
+
+<ol class="min-padding">
+  <li *ngFor="let movie of topMovies">
+    <h2>{{ movie.movie.name }}</h2>
+    <h3>{{ movie.movie.release }}</h3>
+    <h3>{{ totalViewsByCountry(movie) }} views</h3>
+  </li>
+</ol>
