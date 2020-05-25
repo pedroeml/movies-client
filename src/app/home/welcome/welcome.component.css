@@ -13,10 +13,3 @@ h1 {
 ul {
   list-style: none;
 }
-
-mat-spinner {
-  margin-top: 30%;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 70%;
-}

@@ -1,12 +1,8 @@
-mat-tab {
-  overflow: auto;
+mat-card {
+  max-height: 100%;
+  max-width: 500px;
+  margin: auto;
+  padding: 0px;
   display: flex;
   flex-flow: column;
-}
-
-mat-spinner {
-  margin-top: 30%;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 70%;
 }
