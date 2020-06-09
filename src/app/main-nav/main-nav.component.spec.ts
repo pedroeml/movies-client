@@ -35,13 +35,13 @@ describe('MainNavComponent', () => {
       ],
       providers: [
         { provide: AuthService, useClass: class {
-          isLoggedIn() { return true; }
-          logout() { }
+          isLoggedIn: () => boolean = () => true;
+          logout: () => void = () => { };
         } },
       ],
     }).compileComponents().then(() => {
-      service = TestBed.get(AuthService);
-      router = TestBed.get(Router);
+      service = TestBed.inject(AuthService);
+      router = TestBed.inject(Router);
       fixture = TestBed.createComponent(MainNavComponent);
       component = fixture.debugElement.componentInstance;
       fixture.detectChanges();
@@ -72,7 +72,7 @@ describe('MainNavComponent', () => {
   });
 
   describe('logout', () => {
-    const path: string = '/login';
+    const path = '/login';
 
     beforeEach(() => {
       spyOn(service, 'logout');

@@ -37,14 +37,16 @@ describe('AppComponent', () => {
       ],
       providers: [
         BreakpointObserver,
-        { provide: AuthService, useClass: class { isLoggedIn() { return false; } } },
+        { provide: AuthService, useClass: class {
+          isLoggedIn: () => boolean = () => false;
+        } },
       ],
       declarations: [
         AppComponent,
         MainNavComponent
       ],
     }).compileComponents().then(() => {
-      breakpointObserver = TestBed.get(BreakpointObserver);
+      breakpointObserver = TestBed.inject(BreakpointObserver);
 
       spyOn(breakpointObserver, 'observe').and.returnValue(of(breakpointMatches));
 
